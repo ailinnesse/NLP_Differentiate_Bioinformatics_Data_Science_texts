@@ -1,17 +1,16 @@
-# Project 3: Differentiate Reddit Biotech and Bioinformatics Subreddits
+# Project 3: Differentiate Reddit Bioinformatics and Data Science Subreddits
 
 
 
 ### Problem statement:
 
-Training the model to deffirintiate the biotech and bioinformatics related articles. In this project I will focus on deffirintiating Reddit Biotech and Bioinformatics subreddits. My base line is 55%. I have balanced classes and will use accuracy as my mane metric and F1 score as helper to find the best model.
-
+Create a model to differentiate the Bioinformatics and Data Science-related articles. I will focus on determining Reddit Bioinformatics and Data Science subreddits in this project. My baseline is 67%. I have imbalanced classes and will use F1 as my primary metric and accuracy score as a helper to find the best model.
 
 ---
 
 ### Dataset
 
-* [`reddit.csv`](./data/reddit.csv): PushShift Reddit collectred fot two subredits Biotech and Bioinformatics ([source](https://api.pushshift.io/reddit/search/submission))
+* [`reddit.csv`](./data/reddit.csv): PushShift Reddit collectred fot two subredits Bioinformatics and Data Science ([source](https://api.pushshift.io/reddit/search/submission))
 
 
 ---
@@ -28,8 +27,9 @@ Training the model to deffirintiate the biotech and bioinformatics related artic
 ---
 ### Notebooks overview
 
- - 01_Data_Mining - In this notebook, I collected the data from Biotech and Bioinformatics Subredits
+ - 01_Data_Mining - In this notebook, I collected the data from Bioinformatics and Data Science Subredits.
  - 02_EDA_and_Cleaning -  I explored and cleaned the data. 
+ 
  - 02_Visualisations - Visualize relationships between the Gradient of the land, Garage Area, and Sale Price. Checking Sale Price correlation with features and between each other.
  - 03_Preprocessing_and_Feature_Engineering - Log scale Sale price, process features for modeling 
  - 04_Model_Gradient - Several different models to investigate the relationship between the Sale Price and the Gradient of the land.
@@ -40,9 +40,11 @@ Training the model to deffirintiate the biotech and bioinformatics related artic
 
 ### Summary of Analysis
 
-PushShift has data from Readdit, I have collected almost equal ammount of data from two subreddits biotech and bioinformatics. The limit was the number of posts avaliable for bioinformatics - 650.
+PushShift has data from Readdit, I have collected the data from two subreddits Bioinformatics and Data Science. The limit was the number of posts avaliable for bioinformatics - 683.
 
-I have mapped bioinformatics as 0 and biotech as 1 for modeling
+I have mapped Bioinformatics as 1 and Data Science as 0 for modeling
+
+
 
 ![Distribution os Sale Price](https://git.generalassemb.ly/ailinnesse/project-2/blob/main/images/Sale_Price_distribution.jpeg)
 
