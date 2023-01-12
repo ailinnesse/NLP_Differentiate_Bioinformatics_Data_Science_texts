@@ -4,7 +4,7 @@
 
 ### Problem statement:
 
-Create a model to differentiate the Bioinformatics and Data Science-related articles. I will focus on determining Reddit Bioinformatics and Data Science subreddits in this project. My baseline is 67%. I have imbalanced classes and will use F1 as my primary metric and accuracy score as a helper to find the best model.
+Create a model to differentiate the Bioinformatics and Data Science-related articles. I will focus on differentiating Reddit Bioinformatics and Data Science subreddits in this project. My baseline is 67%. I have imbalanced classes and will use F1 as my primary metric and accuracy score as a secondary to find the best classification model.
 
 ---
 
@@ -30,8 +30,7 @@ Create a model to differentiate the Bioinformatics and Data Science-related arti
  - 01_Data_Mining - In this notebook, I collected the data from Bioinformatics and Data Science Subredits.
  - 02_EDA_and_Cleaning -  I explored and cleaned the data. 
  
- - 02_Visualisations - Visualize relationships between the Gradient of the land, Garage Area, and Sale Price. Checking Sale Price correlation with features and between each other.
- - 03_Preprocessing_and_Feature_Engineering - Log scale Sale price, process features for modeling 
+ 
  - 04_Model_Gradient - Several different models to investigate the relationship between the Sale Price and the Gradient of the land.
  - 05_Model_Garage_Area - Models to predict House Prices depending on the Garage Size.
  - 06_Kaggle_Models - Models for Kaggle competition.
@@ -44,38 +43,20 @@ PushShift has data from Readdit, I have collected the data from two subreddits B
 
 I have mapped Bioinformatics as 1 and Data Science as 0 for modeling
 
+During EDA I I found that Data Science Post Body Text has substantial amount of missing data.
+
+![Title and Post Body Counts For Each Subreddit](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/title_post_body_counts.jpeg)
+
+Word counts showed that the most common words for both subreddits are the names of the subreddits. 
+I deleted the prevaling words (data, science, ds, bioinformatics) to find the underling difference between subreddits texts.
 
 
-![Distribution os Sale Price](https://git.generalassemb.ly/ailinnesse/project-2/blob/main/images/Sale_Price_distribution.jpeg)
+![Title and Post Body Counts For Each Subreddit](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/title_post_body_counts.jpeg)
 
 
-Build and evaluated the models to find the influence of Gradient and Garage Area on the price of the house.
 
+![Title and Post Body Counts For Each Subreddit](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/title_post_body_counts.jpeg)
 
-Gradient Model:
-- Model with only Gradient data as features.
-This model did not predict any variation in Sale Price (𝑅2 is only 0.2%)
-- Better predictive model and check the influence of adding Gradient data to it and coefficient for the gradient.
-The model predicts that the houses with a gradient are 0.1% more expensive than the houses without a gradient.
-
-![Compare_Predictions_Gradient](https://git.generalassemb.ly/ailinnesse/project-2/blob/main/images/Compare_Predictions_Gradient.jpeg)
-
-- Split the data into houses on gradient and houses on flat land and compare model predictions.
-Almost no difference in predictions in model fitted on gradient data and fitted on flat data
-
-
-Garage Area Model:
-- Model with only Garage Area as a feature to get graphs of the relationship.
-
-![Residuals_vs_Predictions_Garage](https://git.generalassemb.ly/ailinnesse/project-2/blob/main/images/Residuals_vs_Predictions_Garage.jpeg)
-
-The Residuals plot does not show any clear relationship. However, the model described only 46% of Sale Price variation.
-
-![Garage_Area_and_Sale_Price_Predictions](https://git.generalassemb.ly/ailinnesse/project-2/blob/main/images/Garage_Area_and_Sale_Price_Predictions.jpeg)
-
-The variability of the data is high, however, the model looks good in capturing the trend.
-- Model with other features to get a better prediction of the influence of the Garage Area on the House Price.
-This model predicted that for each square foot increase in Garage Area the Sale Price will increase by 0.03%
 ---
 
 ### Conclusions
