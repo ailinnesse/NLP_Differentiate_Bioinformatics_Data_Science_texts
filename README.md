@@ -4,7 +4,7 @@
 
 ### Problem statement:
 
-Create a model to differentiate the Bioinformatics and Data Science-related articles. I will focus on differentiating Reddit Bioinformatics and Data Science subreddits in this project. My baseline is 67%. I have imbalanced classes and will use F1 as my primary metric and accuracy score as a secondary to find the best classification model.
+Create a model to differentiate the Bioinformatics and Data Science-related articles to help bioinformaticians find more relevant sources of information. I will focus on differentiating Reddit Bioinformatics and Data Science subreddits in this project. My baseline is 67%. I have imbalanced classes and will use F1 as my primary metric and accuracy score as a secondary to find the best classification model.
 
 ---
 
@@ -29,12 +29,10 @@ Create a model to differentiate the Bioinformatics and Data Science-related arti
 
  - 01_Data_Mining - In this notebook, I collected the data from Bioinformatics and Data Science Subredits.
  - 02_EDA_and_Cleaning -  I explored and cleaned the data. 
+ - 03_Naive Bayes Model - Naive Bayes models with Count Vectorize, Tfidf Vectorizer and differnt custom tokenizers.
+ - 04_Boosting Models - XGBoost and Gradient Boosting models with Count Vectorize, Tfidf Vectorizer and differnt custom tokenizers
+ - 05_Stacking Models - Stacking Models with best Naive Bayes, XGBoost and Gradient Boosting models and best performing custom tokenizer.
  
- 
- - 04_Model_Gradient - Several different models to investigate the relationship between the Sale Price and the Gradient of the land.
- - 05_Model_Garage_Area - Models to predict House Prices depending on the Garage Size.
- - 06_Kaggle_Models - Models for Kaggle competition.
-
 ---
 
 ### Summary of Analysis
@@ -51,18 +49,43 @@ Word counts showed that the most common words for both subreddits are the names 
 I deleted the prevaling words (data, science, ds, bioinformatics) to find the underling difference between subreddits texts.
 
 
-![Title and Post Body Counts For Each Subreddit](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/title_post_body_counts.jpeg)
+![Title Most Common Words](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/title_most_common_words.jpeg)
+In the title the most common words are different, with only help precent in both subreddits.
 
 
 
-![Title and Post Body Counts For Each Subreddit](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/title_post_body_counts.jpeg)
+For Biotechnology the number of bigrams repeats is very low, less than 5 even for some of the top 10.
+![Title Most Common Bigrams](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/title_common_bigrams.jpeg)
+
+For Post Body text almost all most common bigrams were parts of the links. I removed links and other code and html chunks using custom build function utilizing Regex.
+
+I combined both text columns to one - 'all text' to use it for modeling.
+The most common words for it are very similar. Form 10 most common words 6 are the same for both models.
+
+??? change!!
+![Title Most Common Bigrams](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/title_common_bigrams.jpeg)
+
+??? change!!!
+
+
+
+
+
+
+
+
+
 
 ---
 
 ### Conclusions
 
-My models could not find any significant influence of the gradient of the land on the sale price. The garage area influences the price of the house, with every extra square foot of the Garage Area the house price increases by 0.03%. 
-I recommend buying the land with a gradient if the reduction in the price of the land compared with a flat one will cover the additional cost of building on the gradient land and finding the balance between the cost of building a garage and its influence on the sale price of the house.
+
+My best model for this project is Stacking with Naive Bayes, Gradient Boosting, and XGBoost with Count vectorization and without tokenizing. It has a high F1 score of 0.846 and a test accuracy of 90%. The model with tokenization has about the same scores (0.005 lower F1 score) and it takes considerably more time to fit and score. 
+I would recommend training my best model with a broader specter of data from different websites and using more Bioinformatics data to battle imbalanced errors in predictions for further development of the model to differentiate Bioinformatics texts from Data Science texts.
+
+
+
 
 
 
