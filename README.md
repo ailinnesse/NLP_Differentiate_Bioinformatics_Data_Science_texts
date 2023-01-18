@@ -4,7 +4,7 @@
 
 ### Problem statement:
 
-Create a model to differentiate the Bioinformatics and Data Science-related articles to help bioinformaticians find more relevant sources of information. I will focus on differentiating Reddit Bioinformatics and Data Science subreddits in this project. My baseline is 67%. I have imbalanced classes and will use F1 as my primary metric and accuracy score as a secondary to find the best classification model.
+Create a model to differentiate the Bioinformatics from Data Science-related articles to help Bioinformaticians find more relevant sources of information. I will focus on differentiating Reddit Bioinformatics and Data Science subreddits in this project. My baseline is 67%. I have imbalanced classes and will use F1 as my primary metric and accuracy score as a secondary to find the best classification model.
 
 ---
 
@@ -62,19 +62,41 @@ For Post Body text almost all most common bigrams were parts of the links. I rem
 I combined both text columns to one - 'all text' to use it for modeling.
 The most common words for it are very similar. Form 10 most common words 6 are the same for both models.
 
-??? change!!
-![Title Most Common Bigrams](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/title_common_bigrams.jpeg)
-
-??? change!!!
+![All Text Most Common Words](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/all_most_common_words.jpeg)
 
 
+Finished EDA and cleaning I moved to modeling.
+
+First I used Naive Bayes model with only title, the resulting scores were a bit low. I have tryed Tdidf Vectorizer instead of Count Vectorizer but the scores went even lower.
+
+I decided to try and fit the model on all text and it elevated all scores.
+To futher improve my model I used three different Tokenizers - NLTP Word Tokenizer with Stemming, NLTP Word Tokenizer with Lemmatizing, Text Blob Tokenizer with Stemming.
+
+Text Blob tokenizer improved the scores and reduced overfitting.
+I used Random Search to find better hyperparameters for model with Text Blob Tokenizer ................................................
+
+My best Naive Bayes uses Count Vectorizer and Text Blob Tokenizing with Stemming fitted on both Title and Body Texts.
+![Naive Bayes Best Model Residuals of Predictions](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/nb_residuals.jpeg)    !!! Update
+
+Then I moved to Boosting models. I explored XGBoost and Gradient Boosting models. Fitted both using Count Vectoriser and Tfidf Vectoriser, as with Naive Bayes model Count Vectoriser performed better.
+Gradient Boosting model had higher scores than XGBoost, but lower, than Naive Bayes.
+
+To futher improve my model I used three different Tokenizers - NLTP Word Tokenizer with Stemming, NLTP Word Tokenizer with Lemmatizing, Text Blob Tokenizer with Stemming.
+
+Text Blob tokenizer improved the scores and reduced overfitting for XGBoost.
+For Gradient Boosting model NLTP Word Tokenizer with Stemming performed better. 
+
+My best Boosting model is Gradient Boosting with Count Vectorizer and NLTP Word Tokenizer with Stemming fitted on both Title and Body Texts.
+![Gradient Boosting Best Model Residuals of Predictions](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/gb_residuals.jpeg)    !!! Update if XGBoost better ????
 
 
+For Stacking I used Count Vectorizer, as it performed better for all models.
+I chose three best models from Naive Bayes, XGBoost and Gradient Boosting and inputed their hyperparameters.
 
+The Stacking model had higher scores but did not improve overfitting.
 
-
-
-
+I chose two best performing Tokenizers - NLTP Word Tokenizer with Stemming (worked better for Gradient Boosting) and Text Blob Tokenizer with Stemming (worked better for all other models).
+Text Blob Tokenizer further improved the scores of the model.
 
 ---
 

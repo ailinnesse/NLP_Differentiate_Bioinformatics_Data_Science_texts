@@ -107,7 +107,7 @@ def textblob_tokenizer(str_input):
     List of Tokenized and Stemmed words from the text
     '''
     blob = TextBlob(str_input)
-    words = [token.lemmatize() for token in blob.words if token not in stopwords.words('english')]
+    words = [token.stem() for token in blob.words if token not in stopwords.words('english')]
     return words
 
 def model_tokenazer(model, model_name, tokenizer, min_df, max_features, max_df, X_train, y_train, X_test, y_test):
