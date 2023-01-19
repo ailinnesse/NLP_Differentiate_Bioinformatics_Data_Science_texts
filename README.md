@@ -110,7 +110,7 @@ My best model for this project is Stacking with Count Vectorizer and NLTP Word T
 ### Conclusions
 
 
-My best model for this project is Stacking with Naive Bayes, Gradient Boosting, and XGBoost with Count vectorization and Text Blob Tokenizing and Stemming. It has a high F1 score of 0.85 and a test accuracy of 91%, which is a great improvement from my baseline model with 67%. My model still has predicted 48 texts wrong, mostly assigning Data Science to Biostatistics texts.
+My best model for this project is Stacking with Naive Bayes, Gradient Boosting, and XGBoost with Count vectorization and Text Blob Tokenizing and Stemming. It has a high F1 score of 0.85 and a test accuracy of 91%, which is a great improvement from my baseline model with 67%. My model still has predicted 48 texts wrong, mostly assigning Data Science to Bioinformatics texts.
 I would recommend training my best model with a broader specter of data from different websites and using more Bioinformatics data to battle imbalanced errors in predictions for further development of the model to differentiate Bioinformatics texts from Data Science texts. Stacking brought only moderate improvement to the Naive Bayes model, I would consider time constraints, as Naive Bayes by itself fits much faster and for the huge amount of data it might be crucial to reduce time, in that case, I would recommend Naive Bayes Text Blob Tokenizer and Stemmer.
 
 
