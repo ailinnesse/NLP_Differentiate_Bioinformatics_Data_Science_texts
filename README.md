@@ -76,7 +76,7 @@ Text Blob tokenizer improved the scores and reduced overfitting.
 I used Random Search to find better hyperparameters for the model with Text Blob Tokenizer, however, the scores went down.
 
 My best Naive Bayes uses Count Vectorizer and Text Blob Tokenizing with Stemming fitted on both Title and Body Texts.
-![Naive Bayes Best Model Residuals of Predictions](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/nb_residuals.jpeg)    !!! Update
+![Naive Bayes Best Model Residuals of Predictions](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/nb_residuals.jpeg)    
 
 Then I moved to Boosting models. I explored XGBoost, Gradient Boosting, and Ada Boost models. Fitted the first two using Count Vectoriser and Tfidf Vectoriser, as with the Naive Bayes model Count Vectoriser performed better. For Ada Boost I used only Count Vectorizer.
 The Gradient Boosting model had higher scores than XGBoost and Ada Boost, but lower, than Naive Bayes.
@@ -87,7 +87,7 @@ Text Blob tokenizer improved the scores and reduced overfitting for XGBoost and 
 For the Gradient Boosting model NLTP Word Tokenizer with Stemming performed better. 
 
 My best-Boosting model is Gradient Boosting with Count Vectorizer and NLTP Word Tokenizer with Stemming fitted on both Title and Body Texts.
-![Gradient Boosting Best Model Residuals of Predictions](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/gb_residuals.jpeg)  !!! Update
+![Gradient Boosting Best Model Residuals of Predictions](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/gb_residuals.jpeg) 
 
 
 For Stacking, I used Count Vectorizer, as it performed better for all models.
@@ -103,7 +103,7 @@ I chose two best-performing Tokenizers - NLTP Word Tokenizer with Stemming (work
 Text Blob Tokenizer further improved the scores of the model.
 
 My best model for this project is Stacking with Count Vectorizer and NLTP Word Tokenizer with Stemming fitted on both Title and Body Texts.
-![Stacking Best Model Residuals of Predictions](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/gb_residuals.jpeg)  !!! Update
+![Stacking Best Model Residuals of Predictions](https://git.generalassemb.ly/ailinnesse/project-3/blob/main/images/st_residuals.jpeg) 
 
 ---
 
