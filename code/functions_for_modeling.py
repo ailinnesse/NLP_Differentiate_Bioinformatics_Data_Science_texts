@@ -13,6 +13,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.pipeline import Pipeline
 from sklearn.naive_bayes import MultinomialNB
 from xgboost import XGBClassifier
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
 
 def plot_residuals(model, X_test, y_test, model_name, file_name):
@@ -39,6 +40,25 @@ def plot_residuals(model, X_test, y_test, model_name, file_name):
     plt.tight_layout()
     plt.savefig(f'../images/{file_name}.jpeg');
 
+    
+def plot_confusion_matrix(model, X_test, y_test):
+    '''
+    Plots Confusion Martix of the model predictions
+    Input:
+    Model
+    X_test
+    y_test
+    
+    Outputs:
+    Confusion Matrix
+    '''
+    pred = model.predict(X_test)
+    cm = confusion_matrix(y_test, pred)
+    cmd = ConfusionMatrixDisplay(confusion_matrix=cm,
+                            display_labels=model.classes_)
+
+    cmd.plot()
+    plt.title('Confusion Matrix', size = 20);
 
 def model_fit_scores(model, X_train, y_train, X_test, y_test, best_params = True):
     '''
